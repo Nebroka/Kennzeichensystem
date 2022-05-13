@@ -1,5 +1,8 @@
 /**
- * <p>Qualitaets- und UnterstuetzungsAgentur - Landesinstitut fuer Schule, Materialien zum schulinternen Lehrplan Informatik SII</p>
+ * <p>
+ * Qualitaets- und UnterstuetzungsAgentur - Landesinstitut fuer Schule,
+ * Materialien zum schulinternen Lehrplan Informatik SII
+ * </p>
  *
  * @version 2014-03-13
  */
@@ -13,7 +16,7 @@ public class Kennzeichen implements ComparableContent<Kennzeichen> {
         ortskennz = pOrtskennz;
     }
 
-    public String gibBezeichnung(){
+    public String gibBezeichnung() {
         return bezeichn;
     }
 
@@ -22,19 +25,19 @@ public class Kennzeichen implements ComparableContent<Kennzeichen> {
     }
 
     public boolean isLess(Kennzeichen pContent) {
-        return this.gibBezeichnung().compareTo(pContent.gibBezeichnung())<0;
+        return this.gibOrtskz().compareTo(pContent.gibOrtskz()) < 0;
     }
 
     public boolean isEqual(Kennzeichen pContent) {
-        return this.gibBezeichnung().compareTo(pContent.gibBezeichnung())==0;
+        return this.gibOrtskz().compareTo(pContent.gibOrtskz()) == 0;
     }
 
     public boolean isGreater(Kennzeichen pContent) {
-        return this.gibBezeichnung().compareTo(pContent.gibBezeichnung())>0;
+        return this.gibOrtskz().compareTo(pContent.gibOrtskz()) > 0;
     }
 
     public String toString() {
-        return ortskennz + " *" + bezeichn;
+        return ortskennz + " " + bezeichn;
     }
 
 }

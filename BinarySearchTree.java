@@ -1,4 +1,3 @@
- 
 
 /**
  * <p>
@@ -26,7 +25,8 @@
  * Hinweis: In dieser Version wird die Klasse BinaryTree nicht benutzt.
  * </p>
  * 
- * @author Qualitaets- und UnterstuetzungsAgentur - Landesinstitut fuer Schule, Materialien zum schulinternen Lehrplan Informatik SII
+ * @author Qualitaets- und UnterstuetzungsAgentur - Landesinstitut fuer Schule,
+ *         Materialien zum schulinternen Lehrplan Informatik SII
  * @version Generisch_02 2014-02-21
  */
 public class BinarySearchTree<ContentType extends ComparableContent<ContentType>> {
@@ -39,19 +39,19 @@ public class BinarySearchTree<ContentType extends ComparableContent<ContentType>
 	 * nicht-null-Teilbaeume hat.
 	 */
 	private class BSTNode<CT extends ComparableContent<CT>> {
-	  
+
 		private CT content;
 		private BinarySearchTree<CT> left, right;
 
 		public BSTNode(CT pContent) {
-			// Der Knoten hat einen linken und rechten Teilbaum, die 
-			// beide von null verschieden sind. Also hat ein Blatt immer zwei 
+			// Der Knoten hat einen linken und rechten Teilbaum, die
+			// beide von null verschieden sind. Also hat ein Blatt immer zwei
 			// leere Teilbaeume unter sich.
 			this.content = pContent;
 			left = new BinarySearchTree<CT>();
 			right = new BinarySearchTree<CT>();
 		}
-		
+
 	}
 
 	/* ----------- Ende der privaten inneren Klasse -------------- */
@@ -87,8 +87,8 @@ public class BinarySearchTree<ContentType extends ComparableContent<ContentType>
 	 * der vorgegebenen Ordnungsrelation in den BinarySearchTree eingeordnet.
 	 * 
 	 * @param pContent
-	 *            einzufuegendes Objekt vom Typ ContentType
-	 *            
+	 *                 einzufuegendes Objekt vom Typ ContentType
+	 * 
 	 */
 	public void insert(ContentType pContent) {
 		if (pContent != null) {
@@ -96,7 +96,7 @@ public class BinarySearchTree<ContentType extends ComparableContent<ContentType>
 				this.node = new BSTNode<ContentType>(pContent);
 			} else if (pContent.isLess(this.node.content)) {
 				this.node.left.insert(pContent);
-			} else if(pContent.isGreater(this.node.content)) {
+			} else if (pContent.isGreater(this.node.content)) {
 				this.node.right.insert(pContent);
 			}
 		}
@@ -106,9 +106,9 @@ public class BinarySearchTree<ContentType extends ComparableContent<ContentType>
 	 * Diese Anfrage liefert den linken Teilbaum des binaeren Suchbaumes. <br />
 	 * Wenn er leer ist, wird null zurueckgegeben.
 	 * 
-	 * @return den linken Teilbaum (Objekt vom Typ BinarySearchTree<ContentType>) 
+	 * @return den linken Teilbaum (Objekt vom Typ BinarySearchTree<ContentType>)
 	 *         bzw. null, wenn der Suchbaum leer ist
-	 *         
+	 * 
 	 */
 	public BinarySearchTree<ContentType> getLeftTree() {
 		if (this.isEmpty()) {
@@ -124,7 +124,7 @@ public class BinarySearchTree<ContentType extends ComparableContent<ContentType>
 	 * 
 	 * @return das Inhaltsobjekt vom Typ ContentType bzw. null, wenn der aktuelle
 	 *         Suchbaum leer ist
-	 *         
+	 * 
 	 */
 	public ContentType getContent() {
 		if (this.isEmpty()) {
@@ -138,9 +138,9 @@ public class BinarySearchTree<ContentType extends ComparableContent<ContentType>
 	 * Diese Anfrage liefert den rechten Teilbaum des binaeren Suchbaumes. <br />
 	 * Wenn er leer ist, wird null zurueckgegeben.
 	 * 
-	 * @return den rechten Teilbaum (Objekt vom Typ BinarySearchTree<ContentType>) 
+	 * @return den rechten Teilbaum (Objekt vom Typ BinarySearchTree<ContentType>)
 	 *         bzw. null, wenn der aktuelle Suchbaum leer ist
-	 *         
+	 * 
 	 */
 	public BinarySearchTree<ContentType> getRightTree() {
 		if (this.isEmpty()) {
@@ -149,7 +149,7 @@ public class BinarySearchTree<ContentType extends ComparableContent<ContentType>
 			return this.node.right;
 		}
 	}
-	
+
 	public ContentType search(ContentType pContent) {
 		if (this.isEmpty() || pContent == null) {
 			// Abbrechen, da es kein Element zu suchen gibt.
@@ -164,13 +164,14 @@ public class BinarySearchTree<ContentType extends ComparableContent<ContentType>
 				return this.getRightTree().search(pContent);
 			} else if (pContent.isEqual(content)) {
 				// Element wurde gefunden.
-			  return content;				
-			} else {	
-			  // Dieser Fall sollte nicht auftreten.
+				return content;
+			} else {
+				// Dieser Fall sollte nicht auftreten.
 				return null;
 			}
 		}
 	}
+
 	/**
 	 * Falls ein bezueglich der verwendeten Vergleichsmethode mit
 	 * pContent uebereinstimmendes Objekt im binaeren Suchbaum enthalten
@@ -178,15 +179,15 @@ public class BinarySearchTree<ContentType extends ComparableContent<ContentType>
 	 * nichts.
 	 * 
 	 * @param pContent
-	 *            zu entfernendes Objekt vom Typ ContentType
-	 *            
+	 *                 zu entfernendes Objekt vom Typ ContentType
+	 * 
 	 */
 	public void remove(ContentType pContent) {
 		if (isEmpty()) {
 			// Abbrechen, da kein Element zum entfernen vorhanden ist.
-		  return;
+			return;
 		}
-		
+
 		if (pContent.isLess(node.content)) {
 			// Element ist im linken Teilbaum zu loeschen.
 			node.left.remove(pContent);
@@ -213,13 +214,13 @@ public class BinarySearchTree<ContentType extends ComparableContent<ContentType>
 					node.content = gibRechtenNachfolger().content;
 					node.right = gibRechtenNachfolger().right;
 				} else {
-					BinarySearchTree<ContentType> vorg‰nger = node.right.ancestorOfSmallRight();
-					BinarySearchTree<ContentType> smallest = vorg‰nger.node.left;
+					BinarySearchTree<ContentType> vorg√§nger = node.right.ancestorOfSmallRight();
+					BinarySearchTree<ContentType> smallest = vorg√§nger.node.left;
 					this.node.content = smallest.node.content;
-					vorg‰nger.remove(smallest.node.content);
+					vorg√§nger.remove(smallest.node.content);
 				}
 			}
-		}		
+		}
 	}
 
 	/**
@@ -228,7 +229,7 @@ public class BinarySearchTree<ContentType extends ComparableContent<ContentType>
 	 * rechten Nachfolger den Vorgaenger des linkesten Nachfolgers zu finden.
 	 * 
 	 */
-	private BinarySearchTree<ContentType> ancestorOfSmallRight() {		
+	private BinarySearchTree<ContentType> ancestorOfSmallRight() {
 		if (gibLinkenNachfolger().left.isEmpty()) {
 			return this;
 		} else {
