@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Kennzeichen
+comment0.text=\r\n\ <p>Qualitaets-\ und\ UnterstuetzungsAgentur\ -\ Landesinstitut\ fuer\ Schule,\ Materialien\ zum\ schulinternen\ Lehrplan\ Informatik\ SII</p>\r\n\r\n\ @version\ 2014-03-13\r\n
+comment1.params=pBezeichn\ pOrtskennz
+comment1.target=Kennzeichen(java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ gibBezeichnung()
+comment3.params=
+comment3.target=java.lang.String\ gibOrtskz()
+comment4.params=pContent
+comment4.target=boolean\ isLess(Kennzeichen)
+comment5.params=pContent
+comment5.target=boolean\ isEqual(Kennzeichen)
+comment6.params=pContent
+comment6.target=boolean\ isGreater(Kennzeichen)
+comment7.params=
+comment7.target=java.lang.String\ toString()
+numComments=8
